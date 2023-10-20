@@ -9,4 +9,4 @@
 7. cd ..
 8. npm start
 
-Now you shoud see the website running on http://localhost:3000 in the brouser
+Now you shoud see the website running on http://localhost:3000 in the browser
