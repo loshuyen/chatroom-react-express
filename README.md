@@ -1,4 +1,4 @@
-# 聊天室
+# 聊天室App
 ### Installation
 1. Open terminal -> Navigate to destination folder
 2. git clone https://github.com/loshuyen/chatroom-react-express.git
