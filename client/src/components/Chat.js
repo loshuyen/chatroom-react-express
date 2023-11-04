@@ -1,13 +1,20 @@
 import '../css/Chat.css';
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import moment from 'moment';
 import { useNavigate } from 'react-router-dom';
+import SendFile from './SendFile';
 
 const Chat = ({ username, room, socket }) => {
   const [message, setMessage] = useState([]);
   const [users, setUsers] = useState([]);
   const navigate = useNavigate();
+  const bottomRef = useRef(null);
+
+  useEffect(() => {
+    //scroll to bottom every time message changes
+    bottomRef.current?.scrollIntoView({behavior: 'smooth'});
+  }, [message]);
 
   useEffect(() => {
     socket.on('message', (msg) => {
@@ -40,7 +47,6 @@ const Chat = ({ username, room, socket }) => {
   };
 
   const handleLeave = () => {
-    // socket.emit('leave_room', { username, room, users });
     navigate('/');
   };
 
@@ -48,12 +54,13 @@ const Chat = ({ username, room, socket }) => {
     const createdAt = moment().format('h:mm a');
     const arr = messages.map((element, i) => {
       return (
-        <div key={i}>
+        <div key={i} ref={bottomRef}>
           <p>
             <span className='message__name'>{element.username}</span>
             <span className='message__meta'>{createdAt}</span>
           </p>
           <p>{element.text}</p>
+          <img src={element.imageSrc}></img>
         </div>
       );
     });
@@ -88,6 +95,7 @@ const Chat = ({ username, room, socket }) => {
             />
             <button>Send</button>
           </form>
+          <SendFile username={username} room={room} socket={socket} />
         </div>
       </div>
     </div>

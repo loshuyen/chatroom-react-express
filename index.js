@@ -35,15 +35,6 @@ io.on('connection', (socket) => {
     io.to(room).emit('message', message);
   });
 
-  // socket.on('leave_room', (data) => {
-  //   const { username, room } = data;
-  //   socket.leave(room);
-
-  //   allUsers = leaveRoom(socket.id, allUsers);
-  //   socket.to(room).emit('room_users', allUsers);
-  //   console.log(`${username} has left the chat`);
-  // });
-
   socket.on('disconnect', () => {
     const userLeaving = allUsers.find((user) => user.id === socket.id);
     const roomLeaving = userLeaving?.room;
