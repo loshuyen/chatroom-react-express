@@ -14,3 +14,4 @@ Now you shoud see the website running on http://localhost:3000 in the browser
 - use socket.io for real-time communication
 - join different rooms for chat
 - users in the room will be shown on the sidebar
+- users can share images in the chatroom
