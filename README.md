@@ -9,7 +9,7 @@
 7. cd ..
 8. npm start
 
-Now you shoud see the website running on http://localhost:3000 in the browser
+Now you can see the website running on http://localhost:3000 in the browser
 ### Features
 - use socket.io for real-time communication
 - join different rooms for chat
