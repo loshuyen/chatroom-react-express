@@ -15,3 +15,8 @@ Now you can see the website running on http://localhost:3000 in the browser
 - join different rooms for chat
 - users in the room will be shown on the sidebar
 - users can share images in the chatroom
+
+### Tech stacks
+- React
+- Express.js
+- Socket.io
